@@ -46,17 +46,17 @@ class Person {
   this.age = age;
   this.stomach = [];
 }
-  eat = function(eatFood){
+  eat(eatFood){
     if(this.stomach.length < 10){
       this.stomach.push(eatFood)
       return `${this.name} is still hungry.`;
     }    
   }
-  poop = function(){
+  poop(){
     this.stomach = [];
     return `${this.name} pooped. ${this.name} is hungry now.`;
   }
-  toString = function(){
+  toString(){
     return `${this.name}, ${this.age}`;
   }
 };
@@ -174,7 +174,7 @@ class Instructor extends Lambdasian {
     super(attributes);
     this.specialty = attributes.specialty;
     this.favLanguage = attributes.favLanguage;
-    this.catchPharase = attributes.catchPhrase;
+    this.catchPhrase = attributes.catchPhrase;
   }
   demo(subject){
     return `Today we are learning about ${subject}`;
@@ -183,7 +183,7 @@ class Instructor extends Lambdasian {
     return `${student.name} receives a perfect score on ${subject}`;
   }
   catchy(){
-    return `${this.name}likes to say, "${this.catchPharase}".`;
+    return `${this.name}likes to say, "${this.catchPhrase}".`;
   }
 }
 const josh = new Instructor({
@@ -259,6 +259,9 @@ class ProjectManager extends Instructor{
     super(attributes);
     this.name = attributes.name;
     this.age = attributes.age;
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase
     this.location = attributes.location;
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
@@ -267,13 +270,16 @@ class ProjectManager extends Instructor{
     return `${this.name} announces to ${slackChannel}, @${slackChannel} standy times!`;
   }
   debugsCode(studentName, subject){
-    return `${this.name} debugs ${studentName}'s code on ${subject}`;
+    return `${this.name} debugs ${studentName}\'s code on ${subject}`;
   }
 }
 const anna = new ProjectManager ({
   name: 'Anna',
   age: 32,
   location: 'Irvine, CA',
+  specialty: 'Graphs',
+  favLanguage: 'Javascript',
+  catchPhrase: 'Doh!',
   gradClassName: 'CS1',
   favInstructor: 'Josh',
 });
