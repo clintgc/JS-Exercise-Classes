@@ -106,7 +106,7 @@ class Car {
   // distance driven and make the odometer go up and reduce the fuel[] by miles / milesPerGallon
   // if gallons = 0 drive should return string saying, "I ran out of fuel at x miles!" x being `odometer`.
 
-  drive = function(distance){ 
+  drive(distance){ 
     let maxDistance = this.milesPerGallon * this.tank
       if (maxDistance < distance){
         this.tank = 0;
@@ -270,7 +270,7 @@ class ProjectManager extends Instructor{
     return `${this.name} announces to ${slackChannel}, @${slackChannel} standy times!`;
   }
   debugsCode(studentName, subject){
-    return `${this.name} debugs ${studentName}\'s code on ${subject}`;
+    return `${this.name} debugs ${studentName.name}\'s code on ${subject}`;
   }
 }
 const anna = new ProjectManager ({
@@ -284,7 +284,7 @@ const anna = new ProjectManager ({
   favInstructor: 'Josh',
 });
 console.log(anna.standUp('Product_Team'));
-console.log(anna.debugsCode('Jack', 'Intro to CSS for Dummies'));
+console.log(anna.debugsCode({name:'Jack'}, 'Intro to CSS for Dummies'));
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
